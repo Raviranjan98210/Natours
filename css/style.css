@@ -41,3 +41,65 @@ body {
 .logo {
   height: 35px;
 }
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  letter-spacing: 35px;
+  font-weight: 400;
+  animation-name: moveLeftToRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+
+  /* transition-delay: 2s; */
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 15px;
+  animation-name: moveRightToLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes moveLeftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveRightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
