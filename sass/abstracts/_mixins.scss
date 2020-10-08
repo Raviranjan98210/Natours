@@ -1,0 +1,54 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+/*
+0  -  600     phone
+600  -  900   tab portrait
+900  -  1200  tab landscape
+1200 - 1800  normal desktop [by default no need to right an extra media query for it]
+1800+  big-screen 
+
+
+breakpoint choices
+
+-phone
+-tab-port
+-tab-land
+-big-desktop
+
+1em = 16px  
+
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == "phone" {
+    @media (max-width: 37.5em) {
+      // 600px = 37.5
+      @content;
+    }
+  }
+  @if $breakpoint == "tab-port" {
+    @media (max-width: 56.25em) {
+      //900px
+      @content;
+    }
+  }
+  @if $breakpoint == "tab-land" {
+    // 1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == "big-desktop" {
+    // 1800px
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

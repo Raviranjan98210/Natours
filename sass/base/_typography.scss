@@ -1,0 +1,101 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  color: $color-dark-grey;
+  line-height: 1.7;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    font-weight: 400;
+    animation-name: moveLeftToRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 2.5rem;
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1.5rem;
+    animation-name: moveRightToLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    @include respond(phone) {
+      letter-spacing: 1rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  display: inline-block;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  transition: all 0.2s;
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: $color-primary;
+    font-size: 1.6rem;
+    padding: 3px;
+    border-bottom: 2px solid $color-primary;
+    transition: all 0.2s;
+  }
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-3px);
+  }
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    transform: translateY(0);
+  }
+}
